@@ -1,13 +1,16 @@
 // pages/users.js
-import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
+const CartPage = function() {
 
-const CartPage = function(params) {
-  const [id, setId] = useState('1');
-  const [price, setPrice] = useState('700');
-  const [quantity, setQuantity] = useState('10');
-  const [subtotal, setSubtotal] = useState('70000');
+  let params = new URLSearchParams(document.location.search);
+  let id_product = params.get("id");
+  let priceIni = params.get("price");
+
+  const [id, setId] = useState(id_product);
+  const [price, setPrice] = useState(priceIni);
+  const [quantity, setQuantity] = useState('');
+  const [subtotal, setSubtotal] = useState('');
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -26,7 +29,6 @@ const CartPage = function(params) {
     const id_product = id;
     const newCart = { id_product, price, quantity, subtotal };
 
-    //console.log(newCart);
     const res = await fetch('/api/cart', {
       method: 'POST',
       headers: {
@@ -45,7 +47,9 @@ const CartPage = function(params) {
 
   return (
     <><div>
-      <h1>Form Shopping Cart</h1>
+      <label className="caption-top py-5 font-bold text-green-500 text-2xl">
+            Form Shopping Cart
+      </label>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -67,7 +71,21 @@ const CartPage = function(params) {
           placeholder="Subtotal"
           value={subtotal}
           onChange={(e) => setSubtotal(e.target.value)} />
-        <button type="submit">Save Product to Shopping Cart</button>
+
+        <button type="submit"
+        style={{
+          backgroundColor: '#4CAF50',
+          color: 'white',
+          border: 'none',
+          padding: '10px 20px',
+          textAlign: 'center',
+          textDecoration: 'none',
+          display: 'inline-block',
+          fontSize: '16px',
+          margin: '10px 2px',
+          cursor: 'pointer',
+          borderRadius: '5px',
+        }}>Save Product to Shopping Cart</button>
       </form>
     </div><div>
 

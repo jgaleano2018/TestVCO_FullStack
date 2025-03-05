@@ -47,11 +47,11 @@ const [dataBestComb, setDataBestComb] = useState([]);
       for(let i=0; i<products.length; i++) { 
 
         if (products[i].id == id1) {
-            setDataBestComb(products[i]);
+          dataBestComb.push(products[i]);
         }
 
         if (products[i].id == id2) {
-            setDataBestComb(products[i]);
+          dataBestComb.push(products[i]);
         }
 
       }
