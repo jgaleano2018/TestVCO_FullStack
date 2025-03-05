@@ -47,13 +47,13 @@ To learn more about Next.js, take a look at the following resources:
 
 ## Backend - API
 
-GET request to /api/product to retrieve the list of products.
-GET request to /api/cart to retrieve the list of shopping cart.
-POST request to /api/cart o create a new shopping cart (send product in the request body).
+- GET request to /api/product to retrieve the list of products.
+- GET request to /api/cart to retrieve the list of shopping cart.
+- POST request to /api/cart o create a new shopping cart (send product in the request body).
 
 ## Front End - API
 
-// front/product consume your /api/product
-// front/cart consume your /api/cart
-// front/product-combination process the function findBestCombination
+- // front/product consume your /api/product
+- // front/cart consume your /api/cart
+- // front/product-combination process the function findBestCombination
 
